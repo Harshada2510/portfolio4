@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Website</title>
+  <link rel="icon" href="./imeg/H.JPG" type="image/JPG">
+    <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Theme toggle -->
+  <input type="checkbox" id="theme-toggle" hidden>
+  <label for="theme-toggle"><span class="sun-icon">🌞</span><span class="moon-icon">🌙</span></label>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to My Personal Website</h1>
+    <p>Explore who I am and what I aspire to be.</p>
+  </header>
+
+  <!-- Navigation buttons -->
+  <nav>
+
+    <button onclick="showSection('welcome')">Home</button>
+    <button onclick="showSection('about')">About Me</button>
+     <button onclick="showSection('video')">Video</button> <!-- ✅ New Video tab -->
+    <button onclick="showSection('achievements')">Achievements</button>
+    <button onclick="showSection('goals')">Future Goals</button>
+    <button onclick="showSection('personal')">Personal</button>
+    <button onclick="showSection('contact')">Contact</button> <!-- ✅ Contact added -->
+     <button onclick="showSection('shop')">Shop</button> <!-- Added Shop button -->
+  </nav>
+
+  <!-- Sections -->
+  <section id="welcome" class="active">
+    <h2>👋 Welcome Section</h2>
+    <p>Hi there! I'm thrilled to have you here. This website is a little window into who I am...</p>
+    <img src="./imeg/profile.JPG" alt="High Quality Photo" class="profile-photo" />
+  </section>
+
+  <section id="about">
+    <h2>👤 About Me</h2>
+    <p><strong>Name:</strong> Harshada Kishor Karande</p>
+    <p><strong>Location:</strong> Palghar, India</p>
+    <p><strong>Education:</strong> Pursuing BTech at Mumbai University</p>
+    <p><strong>Languages Known:</strong> English, Hindi, Marathi</p>
+  </section>
+
+
+<!-- Video Section -->
+<section id="video" class="py-12 bg-white rounded-lg mb-10 shadow-lg">
+  <h2 class="text-3xl font-semibold text-center mb-6">My YouTube Video</h2>
+  <div class="flex justify-center">
+    <iframe width="800" height="450" 
+               src="https://www.youtube.com/embed/9em32dDnTck"  
+            title="Harshada's Portfolio Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            class="rounded-lg shadow-lg">
+    </iframe>
+  </div>
+</section>
+
+  <section id="achievements">
+    <h2>🏆 Achievements</h2>
+    <ul>
+      <li>Internship in Dotnet, SQL & C#</li>
+      <li>💻 Built a student management system in Python</li>
+    </ul>
+  </section>
+
+  <section id="goals">
+    <h2>🎯 Future Goals</h2>
+    <p>I aim to contribute meaningfully to technology and solve real-world problems through global collaboration.</p>
+  </section>
+
+  <section id="personal">
+    <h2>💬 Personal Side</h2>
+    <p><strong>Hobbies:</strong></p>
+    <ul>
+      <li>🎨 Drawing & Design</li>
+      <li>📷 Photography – Capturing everyday beauty</li>
+    </ul>
+
+    <p><strong>Favorites:</strong></p>
+    <ul>
+      <li><strong>Books:</strong> *Atomic Habits*, *The Alchemist*</li>
+      <li><strong>Websites:</strong> Medium, Coursera</li>
+      <li><strong>Startups:</strong> Notion, Duolingo</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Contact Me</h2>
+    <p><strong></strong> <a href="tel:+917769910195">
+        <i class="fa-solid fa-phone fa-2x"></i></a></p>
+    <p><strong></strong> <a href="https://wa.me/917769910195" target="_blank">
+        <i class="fa-brands fa-whatsapp fa-2x"></i></a></p>
+    <p><strong></strong> <a href="mailto:harshadakarande4@gmail.com">
+        <i class="fa-solid fa-envelope fa-2x"></i></a></p>
+
+    <h3>📍 Location</h3>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.936718187249!2d72.7500!3d19.6937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be71221c1b19a6b%3A0xa9c3df43ad72f1d9!2sPalghar%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1716200000000"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <h3>🌐 Social Media</h3>
+    <ul>
+      <li><a href="https://instagram.com/karande.harshada" target="_blank">
+        <i class="fa-brands fa-instagram fa-2x"></i></a></li>
+      <li><a href="https://github.com/harshada2510" target="_blank">
+        <i class="fa-brands fa-github  fa-2x"></i></a></li>
+    </ul>
+  </section>
+  <button id="scrollTopBtn" title="Go to top">⬆️</button>
+ <!-- Shop Section -->
+  <section id="shop" class="py-12 px-6 bg-gray-100 dark:bg-gray-800 text-center">
+    <h2 class="text-3xl font-bold mb-4">🛍️ My Shop</h2>
+    <p class="text-gray-700 dark:text-gray-300 mb-6 max-w-xl mx-auto">
+        Browse our exclusive range of premium cosmetics, crafted to enhance your natural beauty with vibrant colors and nourishing ingredients.
+    </p>
+    <a href="shop.html" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">
+        Visit Cosmeticstore
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 harshadakarande4
+  </footer>
+
+  <!-- Script for interaction -->
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

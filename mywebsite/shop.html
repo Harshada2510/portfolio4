@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cosmetics Shopping Site</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="shop.css">
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow sticky top-0 z-30">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="text-2xl font-bold cursor-pointer">GlowBeauty</div>
+      <div class="hidden md:flex space-x-8 text-gray-700 font-semibold items-center">
+        <a href="#home" class="hover:text-pink-600">Home</a>
+        <a href="#products" class="hover:text-pink-600">Products</a>
+        <button id="cart-button" class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition relative">
+          Cart <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full px-2 text-xs font-bold">0</span>
+        </button>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white border-t md:hidden">
+      <a href="#home" class="block px-4 py-3 border-b hover:bg-gray-100">Home</a>
+      <a href="#products" class="block px-4 py-3 border-b hover:bg-gray-100">Products</a>
+      <button id="cart-button-mobile" class="w-full text-left px-4 py-3 hover:bg-gray-100">Cart (<span id="cart-count-mobile">0</span>)</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="bg-gradient-to-r from-pink-500 via-red-400 to-pink-600 text-white text-center py-28 px-4">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Glow with Confidence</h1>
+    <p class="text-xl max-w-3xl mx-auto mb-8 md:mb-12">Discover top-notch cosmetics & skincare from the best brands.</p>
+    <a href="#products" class="inline-block bg-white text-pink-600 font-bold px-8 py-3 rounded shadow hover:bg-pink-50 transition">Shop Now</a>
+  </section>
+
+  <!-- Products Section with Filters -->
+  <section id="products" class="container mx-auto py-16 px-4">
+    <h2 class="text-4xl font-bold mb-12 text-center text-gray-800">Featured Cosmetics</h2>
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Filters Sidebar -->
+      <aside id="filters-sidebar" class="md:w-64 bg-white p-6 rounded-lg shadow-md">
+        <div id="filters-toggle-btn" class="mb-4 font-semibold">Filters &#x25BC;</div>
+        <div id="filters-content" class="space-y-6">
+
+          <!-- Brand Filter -->
+          <div>
+            <h3 class="text-lg font-semibold mb-2">Brand</h3>
+            <div class="space-y-2">
+              <label class="inline-flex items-center">
+                <input type="checkbox" name="brand" value="Radiance" class="brand-filter" checked />
+                <span class="ml-2">Radiance</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="checkbox" name="brand" value="BlushCo" class="brand-filter" checked />
+                <span class="ml-2">BlushCo</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="checkbox" name="brand" value="GlowInc" class="brand-filter" checked />
+                <span class="ml-2">GlowInc</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Filter -->
+          <div>
+            <h3 class="text-lg font-semibold mb-2">Price</h3>
+            <div class="space-y-2">
+              <label class="inline-flex items-center">
+                <input type="radio" name="price" value="all" class="price-filter" checked />
+                <span class="ml-2">All</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="price" value="under20" class="price-filter" />
+                <span class="ml-2">Under $20</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="price" value="20to40" class="price-filter" />
+                <span class="ml-2">$20 to $40</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="price" value="above40" class="price-filter" />
+                <span class="ml-2">Above $40</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+      
+      <!-- Products Grid -->
+      <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="products-grid">
+      
+        <!-- Product Cards -->
+        <div class="product-card bg-white rounded shadow p-4 flex flex-col" tabindex="0"
+             data-name="Hydrating Lipstick"
+             data-price="19.99"
+             data-description="Soft, moisturizing lipstick with vibrant colors."
+             data-sizes='["Red","Pink","Nude"]'
+             data-image="https://images.unsplash.com/photo-1542838687-1896e4bd2f22?auto=format&fit=crop&w=600&q=80"
+             data-brand="Radiance">
+          <img src="image.png" alt="Hydrating Lipstick" class="rounded mb-4 h-56 object-cover" />
+          <h3 class="text-xl font-semibold mb-2">Hydrating Lipstick</h3>
+          <p class="text-pink-600 font-bold text-lg mb-4">$19.99</p>
+          <button class="add-to-cart-btn mt-auto bg-pink-600 text-white rounded py-2 hover:bg-pink-700 transition font-semibold">Add to Cart</button>
+        </div>
+
+        <div class="product-card bg-white rounded shadow p-4 flex flex-col" tabindex="0"
+             data-name="Velvet Matte Foundation"
+             data-price="42.00"
+             data-description="Long-lasting matte foundation with velvety finish."
+             data-sizes='["Light","Medium","Tan","Dark"]'
+             data-image="https://images.unsplash.com/photo-1556228720-ac3653b0f6a8?auto=format&fit=crop&w=600&q=80"
+             data-brand="BlushCo">
+          <img src="image1.png" alt="Velvet Matte Foundation" class="rounded mb-4 h-56 object-cover" />
+          <h3 class="text-xl font-semibold mb-2">Velvet Matte Foundation</h3>
+          <p class="text-pink-600 font-bold text-lg mb-4">$42.00</p>
+          <button class="add-to-cart-btn mt-auto bg-pink-600 text-white rounded py-2 hover:bg-pink-700 transition font-semibold">Add to Cart</button>
+        </div>
+
+        <div class="product-card bg-white rounded shadow p-4 flex flex-col" tabindex="0"
+             data-name="Refreshing Face Mist"
+             data-price="15.50"
+             data-description="Soothing and hydrating mist for all skin types."
+             data-sizes='["100ml"]'
+             data-image="https://images.unsplash.com/photo-1517705008129-7b38f5361cbb?auto=format&fit=crop&w=600&q=80"
+             data-brand="GlowInc">
+          <img src="image2.png" alt="Refreshing Face Mist" class="rounded mb-4 h-56 object-cover" />
+          <h3 class="text-xl font-semibold mb-2">Refreshing Face Mist</h3>
+          <p class="text-pink-600 font-bold text-lg mb-4">$15.50</p>
+          <button class="add-to-cart-btn mt-auto bg-pink-600 text-white rounded py-2 hover:bg-pink-700 transition font-semibold">Add to Cart</button>
+        </div>
+
+        <div class="product-card bg-white rounded shadow p-4 flex flex-col" tabindex="0"
+             data-name="Classic Eyeliner"
+             data-price="18.00"
+             data-description="Smooth and long-lasting eyeliner pen."
+             data-sizes='["Black","Brown"]'
+             data-image="https://images.unsplash.com/photo-1530586336211-74e4eb68f0e7?auto=format&fit=crop&w=600&q=80"
+             data-brand="Radiance">
+          <img src="image3.png" Classic Eyeliner" class="rounded mb-4 h-56 object-cover" />
+          <h3 class="text-xl font-semibold mb-2">Classic Eyeliner</h3>
+          <p class="text-pink-600 font-bold text-lg mb-4">$18.00</p>
+          <button class="add-to-cart-btn mt-auto bg-pink-600 text-white rounded py-2 hover:bg-pink-700 transition font-semibold">Add to Cart</button>
+        </div>
+
+        <div class="product-card bg-white rounded shadow p-4 flex flex-col" tabindex="0"
+             data-name="Luxury Blush Palette"
+             data-price="49.99"
+             data-description="Multiple shades to create perfect blush looks."
+             data-sizes='["Peach","Rose","Berry"]'
+             data-image="https://images.unsplash.com/photo-1501127122-f385ca6ddd9d?auto=format&fit=crop&w=600&q=80"
+             data-brand="BlushCo">
+          <img src="image4.png" alt="Luxury Blush Palette" class="rounded mb-4 h-56 object-cover" />
+          <h3 class="text-xl font-semibold mb-2">Luxury Blush Palette</h3>
+          <p class="text-pink-600 font-bold text-lg mb-4">$49.99</p>
+          <button class="add-to-cart-btn mt-auto bg-pink-600 text-white rounded py-2 hover:bg-pink-700 transition font-semibold">Add to Cart</button>
+        </div>
+
+        <div class="product-card bg-white rounded shadow p-4 flex flex-col" tabindex="0"
+             data-name="Volumizing Mascara"
+             data-price="24.50"
+             data-description="Enhance your lashes with rich volume."
+             data-sizes='["Black"]'
+             data-image="https://images.unsplash.com/photo-1586772006525-190887037502?auto=format&fit=crop&w=600&q=80"
+             data-brand="GlowInc">
+          <img src="image5.png" alt="Volumizing Mascara" class="rounded mb-4 h-56 object-cover" />
+          <h3 class="text-xl font-semibold mb-2">Volumizing Mascara</h3>
+          <p class="text-pink-600 font-bold text-lg mb-4">$24.50</p>
+          <button class="add-to-cart-btn mt-auto bg-pink-600 text-white rounded py-2 hover:bg-pink-700 transition font-semibold">Add to Cart</button>
+        </div>
+
+        <div class="product-card bg-white rounded shadow p-4 flex flex-col" tabindex="0"
+             data-name="Nourishing Hand Cream"
+             data-price="12.99"
+             data-description="Soft, moisturizing hand cream for dry skin."
+             data-sizes='["50ml"]'
+             data-image="https://images.unsplash.com/photo-1506086679524-3a0e5e73f4c3?auto=format&fit=crop&w=600&q=80"
+             data-brand="Radiance">
+          <img src="image6.png" alt="Nourishing Hand Cream" class="rounded mb-4 h-56 object-cover" />
+          <h3 class="text-xl font-semibold mb-2">Nourishing Hand Cream</h3>
+          <p class="text-pink-600 font-bold text-lg mb-4">$12.99</p>
+          <button class="add-to-cart-btn mt-auto bg-pink-600 text-white rounded py-2 hover:bg-pink-700 transition font-semibold">Add to Cart</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Detail Modal -->
+  <div id="product-modal" tabindex="-1" aria-hidden="true" aria-labelledby="modal-title" role="dialog" class="fixed inset-0 hidden bg-black bg-opacity-60 items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-3xl mx-4 md:mx-auto max-h-[90vh] overflow-y-auto relative">
+      <button id="modal-close" aria-label="Close modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+      <div class="flex flex-col md:flex-row gap-6">
+        <div class="md:w-1/2">
+          <img id="modal-image" src="" alt="Product image" class="rounded-lg w-full h-auto object-cover"/>
+        </div>
+        <div class="md:w-1/2 flex flex-col">
+          <h3 id="modal-name" class="text-3xl font-bold mb-4"></h3>
+          <p id="modal-description" class="mb-4 text-gray-700"></p>
+          <p id="modal-price" class="text-xl font-semibold mb-6 text-pink-700"></p>
+          <label for="size-select" class="font-semibold mb-2">Select Shade / Size:</label>
+          <select id="size-select" class="border rounded px-3 py-2 mb-6 max-w-xs">
+            <!-- sizes inserted here -->
+          </select>
+          <button id="modal-add-cart" class="bg-pink-600 text-white py-3 rounded hover:bg-pink-700 transition font-semibold max-w-xs">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <aside id="cart-sidebar" class="fixed right-0 top-0 w-80 max-w-full h-full bg-white shadow-lg p-6 transform translate-x-full transition-transform duration-300 overflow-auto" aria-label="Shopping cart">
+    <h2 class="text-2xl font-bold mb-4">Shopping Cart</h2>
+    <div id="cart-items" class="space-y-4" role="list">
+      <!-- Items inserted here -->
+    </div>
+    <div class="mt-6 flex justify-between font-semibold text-lg border-t pt-4">
+      <span>Total:</span>
+      <span>$<span id="cart-total">0.00</span></span>
+    </div>
+    <button id="checkout-btn" class="mt-6 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition font-semibold">Checkout</button>
+  </aside>
+  <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+
+  <script src="shop.js"></script>
+
+</body>
+</html>
